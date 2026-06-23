@@ -1,4 +1,5 @@
 <section class="bien-page">
+
   <header class="bien-hero">
     <div class="bien-container bien-hero-grid">
       <div class="bien-hero-copy">
@@ -20,6 +21,7 @@
   </header>
 
   <main>
+
     <section class="bien-section">
       <div class="bien-container">
         <div class="bien-intro">
@@ -67,6 +69,7 @@
         </div>
 
         <div class="bien-grid">
+
           <article class="bien-card">
             <div class="bien-headshot">
               <img
@@ -120,6 +123,7 @@
               </p>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -159,7 +163,9 @@
         </div>
       </div>
     </section>
+
   </main>
+
 </section>
 
 <style>
@@ -194,8 +200,9 @@
       -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     color: var(--bien-text);
     background:
-      radial-gradient(circle at 82% 2%, rgba(201, 151, 0, 0.14), transparent 30%),
-      radial-gradient(circle at 6% 10%, rgba(0, 59, 113, 0.1), transparent 34%),
+      radial-gradient(circle at 82% 2%, rgba(201, 151, 0, 0.18), transparent 30%),
+      radial-gradient(circle at 8% 14%, rgba(0, 59, 113, 0.12), transparent 32%),
+      radial-gradient(circle at 52% 42%, rgba(201, 151, 0, 0.08), transparent 24%),
       linear-gradient(180deg, #ffffff 0%, #f7f9fc 48%, #eef3f8 100%);
   }
 
@@ -213,12 +220,24 @@
   }
 
   .bien-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     margin: 0 0 14px;
     color: var(--bien-gold);
     font-size: 13px;
     font-weight: 750;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  .bien-eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--bien-gold);
+    flex-shrink: 0;
   }
 
   .bien-hero {
@@ -233,11 +252,20 @@
   }
 
   .bien-hero-copy h1 {
+    position: relative;
     margin: 0;
     color: var(--bien-blue-dark);
     font-size: clamp(68px, 10vw, 132px);
     line-height: 0.88;
     letter-spacing: -0.055em;
+  }
+
+  .bien-hero-copy h1::after {
+    content: "!";
+    display: inline-block;
+    color: var(--bien-gold);
+    transform: rotate(8deg);
+    margin-left: 6px;
   }
 
   .bien-hero-copy > p:last-child {
@@ -367,8 +395,20 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
+  .bien-card:nth-child(1) {
+    transform: rotate(-0.6deg);
+  }
+
+  .bien-card:nth-child(2) {
+    transform: rotate(0.45deg);
+  }
+
+  .bien-card:nth-child(3) {
+    transform: rotate(-0.25deg);
+  }
+
   .bien-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px) rotate(0deg);
     border-color: rgba(0, 59, 113, 0.18);
     box-shadow: 0 26px 68px rgba(0, 43, 82, 0.11);
   }
@@ -394,7 +434,11 @@
     display: inline-flex;
     margin-bottom: 24px;
     color: var(--bien-blue);
-    background: rgba(0, 59, 113, 0.08);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 59, 113, 0.08),
+      rgba(201, 151, 0, 0.13)
+    );
     border-radius: 999px;
     padding: 8px 12px;
     font-size: 13px;
@@ -455,6 +499,7 @@
   }
 
   .bien-submit {
+    position: relative;
     padding: clamp(38px, 5vw, 58px);
     background:
       radial-gradient(circle at 92% 10%, rgba(201, 151, 0, 0.28), transparent 28%),
@@ -467,8 +512,30 @@
     box-shadow: 0 28px 78px rgba(0, 43, 82, 0.2);
   }
 
+  .bien-submit::after {
+    content: "Bien hecho!";
+    position: absolute;
+    right: 34px;
+    bottom: 24px;
+    color: rgba(255, 255, 255, 0.12);
+    font-size: clamp(42px, 7vw, 92px);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    pointer-events: none;
+  }
+
+  .bien-submit > div,
+  .bien-submit .bien-button {
+    position: relative;
+    z-index: 1;
+  }
+
   .bien-submit .bien-eyebrow {
     color: #f1d06d;
+  }
+
+  .bien-submit .bien-eyebrow::before {
+    background: #f1d06d;
   }
 
   .bien-submit h2 {
@@ -535,9 +602,25 @@
       min-height: 340px;
     }
 
+    .bien-card:nth-child(1),
+    .bien-card:nth-child(2),
+    .bien-card:nth-child(3) {
+      transform: none;
+    }
+
+    .bien-card:hover {
+      transform: translateY(-4px);
+    }
+
     .bien-submit {
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    .bien-submit::after {
+      right: 20px;
+      bottom: 14px;
+      font-size: clamp(38px, 14vw, 76px);
     }
 
     .bien-impact > div {
